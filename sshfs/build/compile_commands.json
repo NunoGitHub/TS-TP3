@@ -1,0 +1,20 @@
+[
+  {
+    "directory": "/home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build",
+    "command": "cc -Isshfs@exe -I. -I.. -I../ -I/usr/include/fuse3 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -O2 -g -D_REENTRANT -DHAVE_CONFIG_H -Wall -Wextra -Wno-sign-compare -Wmissing-declarations -Wwrite-strings -Wno-unused-result -pthread -DFUSE_USE_VERSION=31 -MD -MQ 'sshfs@exe/sshfs.c.o' -MF 'sshfs@exe/sshfs.c.o.d' -o 'sshfs@exe/sshfs.c.o' -c ../sshfs.c",
+    "file": "../sshfs.c",
+    "output": "sshfs@exe/sshfs.c.o"
+  },
+  {
+    "directory": "/home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build",
+    "command": "cc -Isshfs@exe -I. -I.. -I../ -I/usr/include/fuse3 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -O2 -g -D_REENTRANT -DHAVE_CONFIG_H -Wall -Wextra -Wno-sign-compare -Wmissing-declarations -Wwrite-strings -Wno-unused-result -pthread -DFUSE_USE_VERSION=31 -MD -MQ 'sshfs@exe/cache.c.o' -MF 'sshfs@exe/cache.c.o.d' -o 'sshfs@exe/cache.c.o' -c ../cache.c",
+    "file": "../cache.c",
+    "output": "sshfs@exe/cache.c.o"
+  },
+  {
+    "directory": "/home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build",
+    "command": "cc -Itest/9f86d08@@wrong_command@exe -Itest -I../test -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -O2 -g -D_REENTRANT -DHAVE_CONFIG_H -Wall -Wextra -Wno-sign-compare -Wmissing-declarations -Wwrite-strings -Wno-unused-result -MD -MQ 'test/9f86d08@@wrong_command@exe/wrong_command.c.o' -MF 'test/9f86d08@@wrong_command@exe/wrong_command.c.o.d' -o 'test/9f86d08@@wrong_command@exe/wrong_command.c.o' -c ../test/wrong_command.c",
+    "file": "../test/wrong_command.c",
+    "output": "test/9f86d08@@wrong_command@exe/wrong_command.c.o"
+  }
+]

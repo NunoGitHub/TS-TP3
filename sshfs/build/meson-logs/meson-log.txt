@@ -1,0 +1,173 @@
+Build started at 2021-01-05T19:30:54.130904
+Main binary: /usr/bin/python3
+Build Options: 
+Python system: Linux
+The Meson build system
+Version: 0.53.2
+Source dir: /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs
+Build dir: /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build
+Build type: native build
+Project name: sshfs
+Project version: 3.7.1
+No CFLAGS in the environment, not changing global flags.
+No LDFLAGS in the environment, not changing global flags.
+No CPPFLAGS in the environment, not changing global flags.
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/sanitycheckc.c -o /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/sanitycheckc.exe -pipe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/sanitycheckc.exe
+C compiler for the build machine: cc (gcc 9.3.0 "cc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0")
+C linker for the build machine: cc ld.bfd 2.34
+No CFLAGS in the environment, not changing global flags.
+No LDFLAGS in the environment, not changing global flags.
+No CPPFLAGS in the environment, not changing global flags.
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/sanitycheckc.c -o /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/sanitycheckc.exe -pipe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/sanitycheckc.exe
+C compiler for the host machine: cc (gcc 9.3.0 "cc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0")
+C linker for the host machine: cc ld.bfd 2.34
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Target machine cpu family: x86_64
+Target machine cpu: x86_64
+meson.build:5: WARNING: Consider using the built-in warning_level option instead of using "-Wall".
+meson.build:5: WARNING: Consider using the built-in warning_level option instead of using "-Wextra".
+Running compile:
+Working directory:  /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmprw5o_gzw
+Command line:  cc /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmprw5o_gzw/testfile.c -o /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmprw5o_gzw/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -O0 -Werror=unused-result 
+
+Code:
+ 
+__attribute__((warn_unused_result)) int get_4() {
+    return 4;
+}
+int main(void) {
+    (void) get_4();
+    return 0;
+}
+Compiler stdout:
+ 
+Compiler stderr:
+ /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmprw5o_gzw/testfile.c: In function 'main':
+/home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmprw5o_gzw/testfile.c:6:12: error: ignoring return value of 'get_4', declared with attribute warn_unused_result [-Werror=unused-result]
+    6 |     (void) get_4();
+      |            ^~~~~~~
+cc1: some warnings being treated as errors
+
+Message: Compiler warns about unused result even when casting to void
+Program rst2man found: YES (/usr/bin/rst2man)
+Configuring config.h using configuration
+Pkg-config binary for MachineChoice.HOST is not cached.
+Pkg-config binary missing from cross or native file, or env var undefined.
+Trying a default pkg-config fallback at pkg-config
+Trying pkg-config binary pkg-config for machine MachineChoice.HOST at ['/usr/bin/pkg-config']
+Found pkg-config: /usr/bin/pkg-config (0.29.1)
+Determining dependency 'fuse3' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --modversion fuse3` -> 0
+3.9.0
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --cflags fuse3` -> 0
+-I/usr/include/fuse3
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config fuse3 --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lfuse3 -lpthread
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config fuse3 --libs` -> 0
+-lfuse3 -lpthread
+Running compile:
+Working directory:  /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmp5h5odz6k
+Command line:  cc /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmp5h5odz6k/testfile.c -o /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmp5h5odz6k/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 
+
+Code:
+ #include<stdio.h>
+        
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmpn0_14iem
+Command line:  cc /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmpn0_14iem/testfile.c -o /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmpn0_14iem/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-linux-gnu/9/
+programs: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/9/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/9/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+Running compile:
+Working directory:  /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmpjhk3e90k
+Command line:  cc /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmpjhk3e90k/testfile.c -o /home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/meson-private/tmpjhk3e90k/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lpthread -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(void) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Run-time dependency fuse3 found: YES 3.9.0
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'glib-2.0' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --modversion glib-2.0` -> 0
+2.64.3
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --cflags glib-2.0` -> 0
+-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config glib-2.0 --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lglib-2.0
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config glib-2.0 --libs` -> 0
+-lglib-2.0
+Run-time dependency glib-2.0 found: YES 2.64.3
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'gthread-2.0' with pkg-config executable '/usr/bin/pkg-config'
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --modversion gthread-2.0` -> 0
+2.64.3
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --cflags gthread-2.0` -> 0
+-pthread -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config gthread-2.0 --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lgthread-2.0 -pthread -lglib-2.0
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config gthread-2.0 --libs` -> 0
+-lgthread-2.0 -pthread -lglib-2.0
+Run-time dependency gthread-2.0 found: YES 2.64.3
+Program utils/install_helper.sh found: YES (/home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/utils/install_helper.sh)
+Adding test "wrong_cmd"
+Build targets in project: 4
+
+Found ninja-1.10.0 at /usr/bin/ninja

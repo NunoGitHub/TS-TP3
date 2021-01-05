@@ -1,0 +1,1 @@
+[{"cmd": ["/home/np/Desktop/mestrado/CSI/Tecnologia de Seguran\u00e7a/test/TP3_-_Nota_15.2/TP3 - Nota 15.2/TP3 - Source Code/sshfs/build/test/wrong_command"], "env": {}, "name": "wrong_cmd", "workdir": null, "timeout": 30, "suite": ["sshfs"], "is_parallel": true, "priority": 0, "protocol": "exitcode"}]

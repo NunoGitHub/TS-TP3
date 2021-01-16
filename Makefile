@@ -1,5 +1,5 @@
-executaveis: main.c #passthrough.c passthrough.h
-    gcc -o main.c  `pkg-config fuse3 --cflags --libs` 
+executaveis: main.c 
+    gcc main.c -o main
 
 clean:
-    rm main passthrough   
+    rm main  

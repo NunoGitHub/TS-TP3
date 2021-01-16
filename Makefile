@@ -1,23 +1,5 @@
-CXX		  := g++
-CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
-
-BIN		:= bin
-SRC		:= src
-INCLUDE	:= include
-LIB		:= lib
-
-LIBRARIES	:=
-EXECUTABLE	:= main
-
-
-all: $(BIN)/$(EXECUTABLE)
-
-run: clean all
-	clear
-	./$(BIN)/$(EXECUTABLE)
-
-$(BIN)/$(EXECUTABLE): $(SRC)/*.c
-	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
+executaveis: main.c #passthrough.c passthrough.h
+    gcc -o main.c  `pkg-config fuse3 --cflags --libs` 
 
 clean:
-	-rm $(BIN)/*
+    rm main passthrough   

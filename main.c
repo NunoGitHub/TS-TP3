@@ -5,6 +5,12 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <time.h>
+#include <unistd.h> 
+#include <pthread.h>
+
+static int timer = 0;
+static pthread_t thread_id;
+#define MAX_TIME 30000
 
 const char *getUserName()
 {
@@ -29,7 +35,7 @@ char *gera_codigo()
   {
     strncat(codigo, &char1[rand() % (sizeof char1 - 1)], sizeof(char));
   }
-  char *r = (char*)malloc(sizeof(char *));
+  char *r = (char *)malloc(sizeof(char *));
   strncpy(r, codigo, sizeof(codigo));
   return r;
 }
@@ -88,10 +94,22 @@ int find_email_ficheiro(char search_string[], char *ficheiro)
   }
   return -1;
 }
+void *timeToWait(void *vargp)
+{
+  clock_t before = clock();
+  int msec = 0, trigger = MAX_TIME;
+  do
+  {
 
+    clock_t difference = clock() - before;
+    msec = difference * 1000 / CLOCKS_PER_SEC;
+    timer = msec;
+  } while (msec <= trigger);
+  pthread_exit(0);
+}
 int getPermission()
 {
-  char email[20]={0};
+  char email[20] = {0};
   printf("introduza email: ");
   scanf("%s", &email);
   if (find_email_ficheiro(email, "acessos.txt") == 0)
@@ -101,17 +119,29 @@ int getPermission()
   else
   {
     printf("O seu email não se encontra no ficheiro de acessos.\n");
-    char *codigo = (char*)(malloc(sizeof(char)*10));
+    char *codigo = (char *)(malloc(sizeof(char) * 10));
     codigo = gera_codigo();
     printf("Um email com o código de acesso está a ser enviado!\n");
     sendEmail(email, codigo);
-    char *acesso= NULL;
-    acesso=(char*)malloc(sizeof(char)*30);
+    //Call thread
+    pthread_create(&thread_id, NULL, timeToWait, NULL);
+    char *acesso = NULL;
+    acesso = (char *)malloc(sizeof(char) * 30);
+
     printf("Insira o código de acesso:");
     scanf("%s", acesso);
-    printf("Rmaillllll %s", email);
+    printf("mail %s", email);
+    if (timer >= MAX_TIME)
+    {
+      printf("\ntempo excedido = %d \n", timer);
+      pthread_exit(0);
+      return 0;
+    }
+
     if (strcmp(acesso, codigo) == 0)
     {
+      pthread_exit(0);
+      printf("\ntempo  = %d\n", timer);
       printf("Acesso garantido\n");
       FILE *file;
       file = fopen("acessos.txt", "a");
@@ -121,8 +151,8 @@ int getPermission()
     }
     else
     {
+      printf("tempo excedido = %d \n", timer);
       printf("Código errado! Acesso negado!\n");
-     
     }
   }
   return 0;

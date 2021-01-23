@@ -1,10 +1,7 @@
 build: passthrough.c managePermission.c
-	@echo "Compilation Initiated"
-	gcc -Wall passthrough.c managePermission.c `pkg-config fuse3 --cflags --libs` -o passthrough
-	@echo "Compilation Finished"
+	gcc -Wall -std=c11 -pthread passthrough.c managePermission.c `pkg-config fuse3 --cflags --libs` -o passthrough
 
 exec:
-	@echo "Running"
 	./passthrough -f $(path)
 
 clean:

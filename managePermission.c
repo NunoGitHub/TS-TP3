@@ -4,6 +4,7 @@ static int timer = 0;
 static pthread_t thread_id;
 #define MAX_TIME 30000
 
+//obter o nome do utilizador dono
 const char *getUserName()
 {
   uid_t uid = geteuid();
@@ -15,7 +16,7 @@ const char *getUserName()
 
   return "";
 }
-
+//gera o codigo que vai ser enviado por email para obter a permissão 
 char *gera_codigo()
 {
 
@@ -31,7 +32,7 @@ char *gera_codigo()
   strcpy(r, codigo);
   return r;
 }
-
+//envia o código para o email passado por argumento 
 void sendEmail(char *email, char *codigo)
 {
   char cmd[1000] = "";
@@ -48,6 +49,7 @@ void sendEmail(char *email, char *codigo)
   system(cmd);
 }
 
+//verifica se um email e nome existe no ficheiro acessos.txt
 int find_email_ficheiro(char search_string[], char *ficheiro)
 {
   FILE *fp;
@@ -86,6 +88,7 @@ int find_email_ficheiro(char search_string[], char *ficheiro)
   }
   return -1;
 }
+//Conta o tempo maximo que o utilizador tem para por o codigo recebido
 void *timeToWait()
 {
   clock_t before = clock();
@@ -100,6 +103,10 @@ void *timeToWait()
   pthread_kill(&thread_id);
   return 0;
 }
+
+//verifica se um determinado utilizador tem acesso ao ficheiro, caso contrário envia um código para o seu email
+//se o utilizador for o dono do ficheiro pode aceder diretamente
+//caso o código colocado não seja correto ou o tempo ultrapassar 30 segundos, então é feito exit
 int getPermission()
 {
   char *email=(char *)(malloc(sizeof(char) * 20));
@@ -115,8 +122,9 @@ int getPermission()
   nome_email= strcat(nomeAux,"-");
   strncat(nome_email, email,(sizeof(char*))*(sizeof(email)+sizeof(nomeAux)));
 
-  if(strcmp(getUserName(), nome)==0 || (find_email_ficheiro(nome_email, "acessos.txt") == 0) ){
-    printf("acesso garantido");
+  if(strcmp(getUserName(), nome)==0 || (find_email_ficheiro(nome_email, "/home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/tp3/acessos.txt") == 0) ){
+    printf("Acesso garantido\n");
+    return 0;
   }
   else
   {
@@ -134,9 +142,9 @@ int getPermission()
     scanf("%s", acesso);
     if (timer >= MAX_TIME)
     {
-      printf("\ntempo excedido = %d \n", timer);
+      printf("\ntempo excedido = %f segundos \n", ((float)timer/(float)1000));
       pthread_kill(&thread_id);
-      return 0;
+      exit(0);
     }
 
     if (strcmp(acesso, codigo) == 0)
@@ -144,22 +152,18 @@ int getPermission()
       pthread_kill(&thread_id);
       printf("Acesso garantido\n");
       FILE *file;
-      file = fopen("acessos.txt", "a");
+      file = fopen("/home/np/Desktop/mestrado/CSI/Tecnologia de Segurança/tp3/acessos.txt", "a");
       fputs("\n", file);
       fputs(nome_email, file);
       fclose(file);
+      return 0;
     }
     else
     {
       
       printf("Código errado! Acesso negado!\n");
+      exit(0);
     }
   }
   return 0;
 }
-/*
-int main()
-{
-  getPermission();
-  return 0;
-}*/

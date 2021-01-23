@@ -34,7 +34,7 @@
 /* For pread()/pwrite()/utimensat() */
 #define _XOPEN_SOURCE 700
 #endif
-#include "passthrough.h"
+#include "managePermission.h"
 #include <fuse.h>
 #include <stdio.h>
 #include <string.h>
@@ -291,9 +291,8 @@ static int xmp_create(const char *path, mode_t mode,
 
 static int xmp_open(const char *path, struct fuse_file_info *fi)
 {
+	//verifica se tem as permissões corretas antes de abrir o ficheiro
 	int res;
-
-
 	int permission;
     permission = getPermission();
     if ( permission == -1 ) {
@@ -554,7 +553,6 @@ static const struct fuse_operations xmp_oper = {
 #endif
 	.lseek		= xmp_lseek,
 };
-
 int main(int argc, char *argv[])
 {
 	umask(0);

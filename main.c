@@ -36,7 +36,7 @@ char *gera_codigo()
     strncat(codigo, &char1[rand() % (sizeof char1 - 1)], sizeof(char));
   }
   char *r = (char *)malloc(sizeof(char *));
-  strncpy(r, codigo, sizeof(codigo));
+  strcpy(r, codigo);
   return r;
 }
 
@@ -94,7 +94,7 @@ int find_email_ficheiro(char search_string[], char *ficheiro)
   }
   return -1;
 }
-void *timeToWait(void *vargp)
+void *timeToWait()
 {
   clock_t before = clock();
   int msec = 0, trigger = MAX_TIME;
@@ -105,16 +105,26 @@ void *timeToWait(void *vargp)
     msec = difference * 1000 / CLOCKS_PER_SEC;
     timer = msec;
   } while (msec <= trigger);
-  pthread_exit(0);
+  pthread_kill(&thread_id);
+  return 0;
 }
 int getPermission()
 {
-  char email[20] = {0};
+  char *email=(char *)(malloc(sizeof(char) * 20));
+  char *nome=(char *)(malloc(sizeof(char) * 20));
+  char *nomeAux=(char *)(malloc(sizeof(char) * 20));
+  printf("Introduza nome: ");
+  scanf("%s", nome);
+  
   printf("introduza email: ");
-  scanf("%s", &email);
-  if (find_email_ficheiro(email, "acessos.txt") == 0)
-  {
-    printf("Acesso garantido\n");
+  scanf("%s", email);
+  strcpy(nomeAux,nome);
+  char * nome_email= (char*)(malloc(sizeof(email)+sizeof(nome)));
+  nome_email= strcat(nomeAux,"-");
+  strncat(nome_email, email,(sizeof(char*))*(sizeof(email)+sizeof(nomeAux)));
+
+  if(strcmp(getUserName(), nome)==0 || (find_email_ficheiro(nome_email, "acessos.txt") == 0) ){
+    printf("acesso garantido");
   }
   else
   {
@@ -130,28 +140,26 @@ int getPermission()
 
     printf("Insira o código de acesso:");
     scanf("%s", acesso);
-    printf("mail %s", email);
     if (timer >= MAX_TIME)
     {
       printf("\ntempo excedido = %d \n", timer);
-      pthread_exit(0);
+      pthread_kill(&thread_id);
       return 0;
     }
 
     if (strcmp(acesso, codigo) == 0)
     {
-      pthread_exit(0);
-      printf("\ntempo  = %d\n", timer);
+      pthread_kill(&thread_id);
       printf("Acesso garantido\n");
       FILE *file;
       file = fopen("acessos.txt", "a");
       fputs("\n", file);
-      fputs(email, file);
+      fputs(nome_email, file);
       fclose(file);
     }
     else
     {
-      printf("tempo excedido = %d \n", timer);
+      
       printf("Código errado! Acesso negado!\n");
     }
   }

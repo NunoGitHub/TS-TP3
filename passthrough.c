@@ -2,7 +2,6 @@
   FUSE: Filesystem in Userspace
   Copyright (C) 2001-2007  Miklos Szeredi <miklos@szeredi.hu>
   Copyright (C) 2011       Sebastian Pipping <sebastian@pipping.org>
-
   This program can be distributed under the terms of the GNU GPLv2.
   See the file COPYING.
 */
@@ -293,6 +292,13 @@ static int xmp_create(const char *path, mode_t mode,
 static int xmp_open(const char *path, struct fuse_file_info *fi)
 {
 	int res;
+
+
+	int permission;
+    permission = getPermission();
+    if ( authorized == -1 ) {
+        return -1;
+    } 
 
 	res = open(path, fi->flags);
 	if (res == -1)

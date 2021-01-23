@@ -34,7 +34,7 @@
 /* For pread()/pwrite()/utimensat() */
 #define _XOPEN_SOURCE 700
 #endif
-
+#include "passthrough.h"
 #include <fuse.h>
 #include <stdio.h>
 #include <string.h>
@@ -296,7 +296,7 @@ static int xmp_open(const char *path, struct fuse_file_info *fi)
 
 	int permission;
     permission = getPermission();
-    if ( authorized == -1 ) {
+    if ( permission == -1 ) {
         return -1;
     } 
 

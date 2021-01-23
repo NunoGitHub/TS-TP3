@@ -1,12 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <pwd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <time.h>
-#include <unistd.h> 
-#include <pthread.h>
+#include "managePermission.h"
 
 static int timer = 0;
 static pthread_t thread_id;
@@ -165,9 +157,9 @@ int getPermission()
   }
   return 0;
 }
-
+/*
 int main()
 {
   getPermission();
   return 0;
-}
+}*/

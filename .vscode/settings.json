@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.tpp": "c",
-        "cstring": "c"
-    },
-    "terminal.integrated.shell.windows": "cmd.exe"
-}
